@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casey Shalom | Student & Learner</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--3" aria-hidden="true"></div>
+
+    <nav id="navbar" class="navbar">
+        <div class="navbar__inner">
+            <ul class="navbar__links" id="nav-links">
+                <li><a href="index.html" class="nav-link">About</a></li>
+                <li><a href="experience.html" class="nav-link active">Experience</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+            </ul>
+            <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-menu__links">
+            <li><a href="index.html" class="mobile-link">About</a></li>
+            <li><a href="experience.html" class="mobile-link active">Experience</a></li>
+            <li><a href="projects.html" class="mobile-link">Projects</a></li>
+            <li><a href="certifications.html" class="mobile-link">Certifications</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Experience Hero -->
+        <section class="experience-hero">
+            <div class="experience-hero__container">
+                <div class="experience-hero__badge reveal">MY JOURNEY</div>
+                <h1 class="experience-hero__title reveal">Experience</h1>
+                <p class="experience-hero__subtitle reveal">A brief overview of my professional experience and technical
+                    background.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section__container">
+                <div class="section__header reveal">
+                    <h2 class="section__title section__title--centered">Work History</h2>
+                </div>
+
+                <div class="timeline">
+                    <!-- Item 1: NOC -->
+                    <div class="timeline__item reveal">
+                        <div class="timeline__side timeline__info">
+                            <h3 class="timeline__role">Network Operation Center</h3>
+                            <div class="timeline__org">PT MEDIA CEPAT INDONESIA</div>
+                            <span class="timeline__date">JUL 2025 — OCT 2025</span>
+                        </div>
+                        <div class="timeline__marker"></div>
+                        <div class="timeline__side">
+                            <div class="timeline__content">
+                                <p class="timeline__desc">Part of the NOC team responsible for monitoring network
+                                    stability. Tasks included network troubleshooting and configuring devices such as
+                                    <strong>switches and routers</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: IT Support -->
+                    <div class="timeline__item reveal">
+                        <div class="timeline__side timeline__info">
+                            <h3 class="timeline__role">IT Support</h3>
+                            <div class="timeline__org">PT Jarvis Integrasi Solusi</div>
+                            <span class="timeline__date">JUL 2024 — AUG 2024</span>
+                        </div>
+                        <div class="timeline__marker"></div>
+                        <div class="timeline__side">
+                            <div class="timeline__content">
+                                <p class="timeline__desc">Assisted the IT team with hardware and software
+                                    troubleshooting. Managed on-site device migrations and helped maintain network
+                                    performance during an <strong>internship program</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__top">
+                <div class="footer__col footer__brand">
+                    <h2 class="footer__logo">Casey Shalom</h2>
+                    <p class="footer__tagline">NOC Engineer & IT Support Specialist building efficient and reliable network infrastructures.</p>
+                </div>
+                <div class="footer__col footer__nav">
+                    <h3 class="footer__title">Navigation</h3>
+                    <ul class="footer__links">
+                        <li><a href="index.html">About</a></li>
+                        <li><a href="experience.html">Experience</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="certifications.html">Certifications</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col footer__social">
+                    <h3 class="footer__title">Connect</h3>
+                    <div class="footer__icons">
+                        <a href="https://www.linkedin.com/in/casey-shalom" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/caseyshalom" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">Copyright © 2026 Casey Shalom | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>

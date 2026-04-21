@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casey Shalom | Student & Learner</title>
+    <meta name="description"
+        content="Personal portfolio — Developer & Engineer. Building digital solutions with passion and precision.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Background glow orbs -->
+    <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--3" aria-hidden="true"></div>
+
+    <!-- Floating Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="navbar__inner">
+            <ul class="navbar__links" id="nav-links">
+                <li><a href="index.html" class="nav-link active">About</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+            </ul>
+            <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-menu__links">
+            <li><a href="index.html" class="mobile-link active">About</a></li>
+            <li><a href="experience.html" class="mobile-link">Experience</a></li>
+            <li><a href="projects.html" class="mobile-link">Projects</a></li>
+            <li><a href="certifications.html" class="mobile-link">Certifications</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero__container">
+                <div class="hero__content">
+                    <div class="hero__badge">
+                        <span class="hero__badge-dot"></span>
+                        <span>Online</span>
+                    </div>
+                    <h1 class="hero__title">
+                        Hi, I'm <span class="gradient-text">Casey Shalom</span>
+                    </h1>
+                    <p class="hero__subtitle">
+                        Student & Learner — crafting clean, efficient digital solutions with passion and precision.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#projects" class="btn btn--primary" id="view-projects-btn">
+                            <i class="fas fa-rocket"></i> View Projects
+                        </a>
+                        <a href="https://www.linkedin.com/in/casey-shalom" target="_blank" class="btn btn--ghost" id="contact-btn">
+                            <i class="fab fa-linkedin"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="hero__terminal">
+                    <div class="terminal">
+                        <div class="terminal__header">
+                            <div class="terminal__dots">
+                                <span class="terminal__dot terminal__dot--red"></span>
+                                <span class="terminal__dot terminal__dot--yellow"></span>
+                                <span class="terminal__dot terminal__dot--green"></span>
+                            </div>
+                            <span class="terminal__title">terminal</span>
+                        </div>
+                        <div class="terminal__body">
+                            <div class="terminal__line">
+                                <span class="terminal__prompt">$</span>
+                                <span class="terminal__command" id="typed-text"></span>
+                                <span class="terminal__cursor">▎</span>
+                            </div>
+                            <div class="terminal__output" id="terminal-output">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="section__container">
+                <div class="section__header">
+                    <span class="section__tag">_ SKILLS</span>
+                    <h2 class="section__title">Technical Excellence</h2>
+                </div>
+            </div>
+            <!-- Single Marquee Row -->
+            <div class="marquee" id="skills-marquee">
+                <div class="marquee__track marquee__track--left">
+                    <div class="marquee__content">
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg"
+                                alt="Google Cloud"><span>Google Cloud</span></div>
+                        <div class="marquee-item"><i class="fab fa-aws" style="color:#FF9900"></i><span>AWS</span></div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"><span>Docker</span></div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.simpleicons.org/terraform/7B42BC"
+                                alt="Terraform"><span>Terraform</span></div>
+                        <div class="marquee-item"><img class="marquee-img" src="https://cdn.simpleicons.org/git/F05032"
+                                alt="Git"><span>Git</span></div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                                alt="Python"><span>Python</span></div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.simpleicons.org/supabase/3ECF8E" alt="Supabase"><span>Supabase</span>
+                        </div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.simpleicons.org/huawei/CF0A2C" alt="Huawei"><span>Huawei</span></div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.simpleicons.org/cisco/049FD9" alt="Cisco"><span>Cisco</span></div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.simpleicons.org/mikrotik/293239" alt="MikroTik"><span>MikroTik</span>
+                        </div>
+                    </div>
+                    <div class="marquee__content" aria-hidden="true">
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg"
+                                alt="Google Cloud"><span>Google Cloud</span></div>
+                        <div class="marquee-item"><i class="fab fa-aws" style="color:#FF9900"></i><span>AWS</span></div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"><span>Docker</span></div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.simpleicons.org/terraform/7B42BC"
+                                alt="Terraform"><span>Terraform</span></div>
+                        <div class="marquee-item"><img class="marquee-img" src="https://cdn.simpleicons.org/git/F05032"
+                                alt="Git"><span>Git</span></div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                                alt="Python"><span>Python</span></div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.simpleicons.org/supabase/3ECF8E" alt="Supabase"><span>Supabase</span>
+                        </div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.simpleicons.org/huawei/CF0A2C" alt="Huawei"><span>Huawei</span></div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.simpleicons.org/cisco/049FD9" alt="Cisco"><span>Cisco</span></div>
+                        <div class="marquee-item"><img class="marquee-img"
+                                src="https://cdn.simpleicons.org/mikrotik/293239" alt="MikroTik"><span>MikroTik</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section section--alt">
+            <div class="section__container">
+                <div class="section__header">
+                    <span class="section__tag">_ FEATURED WORK</span>
+                    <h2 class="section__title">Project Showcase</h2>
+                </div>
+                <div class="projects-grid" id="projects-grid">
+                    <a href="#" class="project-card" id="project-1">
+                        <div class="project-card__header">
+                            <i class="fas fa-folder-open project-card__icon"></i>
+                            <div class="project-card__links">
+                                <i class="fab fa-github"></i>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">Portfolio Website</h3>
+                        <p class="project-card__desc">A minimalist personal portfolio built with vanilla HTML, CSS, and
+                            JavaScript with smooth animations.</p>
+                        <div class="project-card__tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </a>
+                    <a href="#" class="project-card" id="project-2">
+                        <div class="project-card__header">
+                            <i class="fas fa-folder-open project-card__icon"></i>
+                            <div class="project-card__links">
+                                <i class="fab fa-github"></i>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">Task Manager API</h3>
+                        <p class="project-card__desc">RESTful API for task management with authentication, built using
+                            Node.js and Express with MongoDB.</p>
+                        <div class="project-card__tags">
+                            <span>Node.js</span>
+                            <span>Express</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </a>
+                    <a href="#" class="project-card" id="project-3">
+                        <div class="project-card__header">
+                            <i class="fas fa-folder-open project-card__icon"></i>
+                            <div class="project-card__links">
+                                <i class="fab fa-github"></i>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">Weather Dashboard</h3>
+                        <p class="project-card__desc">Real-time weather visualization dashboard with interactive charts
+                            and location-based forecasting.</p>
+                        <div class="project-card__tags">
+                            <span>React</span>
+                            <span>Chart.js</span>
+                            <span>API</span>
+                        </div>
+                    </a>
+                    <a href="#" class="project-card" id="project-4">
+                        <div class="project-card__header">
+                            <i class="fas fa-folder-open project-card__icon"></i>
+                            <div class="project-card__links">
+                                <i class="fab fa-github"></i>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">CLI Automation Tool</h3>
+                        <p class="project-card__desc">Command-line tool for automating repetitive DevOps tasks with
+                            configurable workflow pipelines.</p>
+                        <div class="project-card__tags">
+                            <span>Python</span>
+                            <span>CLI</span>
+                            <span>DevOps</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- The Academy Section -->
+        <section id="academy" class="section section--academy">
+            <div class="section__container">
+                <div class="academy__header reveal">
+                    <h2 class="academy__title">The Academy</h2>
+                    <span class="academy__subtitle">/ACADEMIC_CREDENTIALS</span>
+                </div>
+
+                <div class="academy__card reveal">
+                    <div class="academy__card-left">
+                        <div class="academy__logo-box">
+                            <img src="assets/img/university-logo.png" alt="Universitas Nusa Mandiri Logo" class="academy__logo-img">
+                        </div>
+                        <div class="academy__info">
+                            <h3 class="academy__name">Universitas Nusa Mandiri</h3>
+                            <div class="academy__major-badge">UNDERGRADUATE IN INFORMATICS (S1)</div>
+                            <div class="academy__status">
+                                <span class="status-dot"></span> Calculating...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="academy__card-right">
+                        <div class="academy__metrics-label">PERFORMANCE METRICS</div>
+                        <div class="academy__metrics-value">Calculating...</div>
+                        <div class="academy__metrics-status">In Progress (Undergraduate)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__top">
+                <div class="footer__col footer__brand">
+                    <h2 class="footer__logo">Casey Shalom</h2>
+                    <p class="footer__tagline">NOC Engineer & IT Support Specialist building efficient and reliable
+                        network infrastructures.</p>
+                </div>
+                <div class="footer__col footer__nav">
+                    <h3 class="footer__title">Navigation</h3>
+                    <ul class="footer__links">
+                        <li><a href="index.html">About</a></li>
+                        <li><a href="experience.html">Experience</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="certifications.html">Certifications</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col footer__social">
+                    <h3 class="footer__title">Connect</h3>
+                    <div class="footer__icons">
+                        <a href="https://www.linkedin.com/in/casey-shalom" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/caseyshalom" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">Copyright © 2026 Casey Shalom | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casey Shalom | Student & Learner</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--3" aria-hidden="true"></div>
+
+    <nav id="navbar" class="navbar">
+        <div class="navbar__inner">
+            <ul class="navbar__links" id="nav-links">
+                <li><a href="index.html" class="nav-link">About</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="certifications.html" class="nav-link active">Certifications</a></li>
+            </ul>
+            <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-menu__links">
+            <li><a href="index.html" class="mobile-link">About</a></li>
+            <li><a href="experience.html" class="mobile-link">Experience</a></li>
+            <li><a href="projects.html" class="mobile-link">Projects</a></li>
+            <li><a href="certifications.html" class="mobile-link active">Certifications</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="section section--page-header">
+            <div class="section__container">
+                <div class="section__header">
+                    <span class="section__tag">_ ACHIEVEMENTS</span>
+                    <h2 class="section__title">Certifications</h2>
+                    <p class="section__subtitle">A collection of professional credentials validating my expertise in
+                        Network Engineering, Cloud Infrastructure, and AI Development. These certifications reflect
+                        my commitment to technical excellence and continuous learning.</p>
+                </div>
+
+                <div class="cert-filters reveal">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-th-large"></i> All <span>8</span>
+                    </button>
+                    <button class="filter-btn" data-filter="network">
+                        <i class="fas fa-network-wired"></i> Network <span>3</span>
+                    </button>
+                    <button class="filter-btn" data-filter="cloud-ai">
+                        <i class="fas fa-cloud"></i> Cloud & AI <span>3</span>
+                    </button>
+                    <button class="filter-btn" data-filter="development">
+                        <i class="fas fa-code"></i> Development <span>2</span>
+                    </button>
+                </div>
+
+                <div class="cert-grid">
+                    <!-- MikroTik Certifications -->
+                    <div class="cert-card reveal" data-category="network">
+                        <div class="cert-card__banner">
+                            <img src="assets/img/bannermikrotik.png" alt="MikroTik Banner">
+                            <span class="cert-card__date-tag">Oct 2024</span>
+                        </div>
+                        <div class="cert-card__body">
+                            <div class="cert-card__org-row">
+                                <img src="assets/img/logomikrotik.jpg" class="cert-card__org-logo" alt="MikroTik Logo">
+                                <span class="cert-card__org-name">MikroTik</span>
+                                <span class="cert-card__status-tag">Verified</span>
+                            </div>
+                            <h3 class="cert-card__title">MTCNA - MikroTik Certified Network Associate</h3>
+                            <div class="cert-card__tags">
+                                <span>Networking</span>
+                                <span>MikroTik</span>
+                            </div>
+                            <div class="cert-card__footer">
+                                <span class="cert-card__id">CERT-MT-001</span>
+                                <a href="https://mikrotik.com/training/certificates/c365530cb2cb63bc2c40"
+                                    target="_blank" class="cert-card__verify">Verify <i
+                                        class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card reveal" data-category="network">
+                        <div class="cert-card__banner">
+                            <img src="assets/img/bannermikrotik.png" alt="MikroTik Banner">
+                            <span class="cert-card__date-tag">Nov 2024</span>
+                        </div>
+                        <div class="cert-card__body">
+                            <div class="cert-card__org-row">
+                                <img src="assets/img/logomikrotik.jpg" class="cert-card__org-logo" alt="MikroTik Logo">
+                                <span class="cert-card__org-name">MikroTik</span>
+                                <span class="cert-card__status-tag">Verified</span>
+                            </div>
+                            <h3 class="cert-card__title">MTCRE - MikroTik Certified Routing Engineer</h3>
+                            <div class="cert-card__tags">
+                                <span>Routing</span>
+                                <span>BGP/OSPF</span>
+                            </div>
+                            <div class="cert-card__footer">
+                                <span class="cert-card__id">CERT-MT-002</span>
+                                <a href="https://mikrotik.com/training/certificates/c390418cdc3242360757"
+                                    target="_blank" class="cert-card__verify">Verify <i
+                                        class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card reveal" data-category="network">
+                        <div class="cert-card__banner">
+                            <img src="assets/img/bannermikrotik.png" alt="MikroTik Banner">
+                            <span class="cert-card__date-tag">Oct 2024</span>
+                        </div>
+                        <div class="cert-card__body">
+                            <div class="cert-card__org-row">
+                                <img src="assets/img/logomikrotik.jpg" class="cert-card__org-logo" alt="MikroTik Logo">
+                                <span class="cert-card__org-name">MikroTik</span>
+                                <span class="cert-card__status-tag">Verified</span>
+                            </div>
+                            <h3 class="cert-card__title">MTCTCE - MikroTik Certified Traffic Control Engineer</h3>
+                            <div class="cert-card__tags">
+                                <span>Traffic Control</span>
+                                <span>QoS</span>
+                            </div>
+                            <div class="cert-card__footer">
+                                <span class="cert-card__id">CERT-MT-003</span>
+                                <a href="https://mikrotik.com/training/certificates/c365634cea0824e0e56d"
+                                    target="_blank" class="cert-card__verify">Verify <i
+                                        class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dicoding Certifications -->
+                    <div class="cert-card reveal" data-category="cloud-ai">
+                        <div class="cert-card__banner">
+                            <img src="assets/img/bannerdicoding.jpg" alt="Dicoding Banner">
+                            <span class="cert-card__date-tag">Nov 2024</span>
+                        </div>
+                        <div class="cert-card__body">
+                            <div class="cert-card__org-row">
+                                <img src="assets/img/icondicoding.jpg" class="cert-card__org-logo" alt="Dicoding Logo">
+                                <span class="cert-card__org-name">Dicoding Indonesia</span>
+                                <span class="cert-card__status-tag">Verified</span>
+                            </div>
+                            <h3 class="cert-card__title">Belajar Dasar-Dasar DevOps</h3>
+                            <div class="cert-card__tags">
+                                <span>DevOps</span>
+                                <span>Automation</span>
+                            </div>
+                            <div class="cert-card__footer">
+                                <span class="cert-card__id">CERT-DIC-001</span>
+                                <a href="https://www.dicoding.com/certificates/4EXG71151PRL" target="_blank"
+                                    class="cert-card__verify">Verify <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card reveal" data-category="cloud-ai">
+                        <div class="cert-card__banner">
+                            <img src="assets/img/bannerdicoding.jpg" alt="Dicoding Banner">
+                            <span class="cert-card__date-tag">May 2025</span>
+                        </div>
+                        <div class="cert-card__body">
+                            <div class="cert-card__org-row">
+                                <img src="assets/img/icondicoding.jpg" class="cert-card__org-logo" alt="Dicoding Logo">
+                                <span class="cert-card__org-name">Dicoding Indonesia</span>
+                                <span class="cert-card__status-tag">Verified</span>
+                            </div>
+                            <h3 class="cert-card__title">Belajar Dasar Cloud dan Gen AI di AWS</h3>
+                            <div class="cert-card__tags">
+                                <span>Cloud</span>
+                                <span>Generative AI</span>
+                            </div>
+                            <div class="cert-card__footer">
+                                <span class="cert-card__id">CERT-DIC-002</span>
+                                <a href="https://www.dicoding.com/certificates/0LZ0RV0VNP65" target="_blank"
+                                    class="cert-card__verify">Verify <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card reveal" data-category="cloud-ai">
+                        <div class="cert-card__banner">
+                            <img src="assets/img/bannerdicoding.jpg" alt="Dicoding Banner">
+                            <span class="cert-card__date-tag">Dec 2024</span>
+                        </div>
+                        <div class="cert-card__body">
+                            <div class="cert-card__org-row">
+                                <img src="assets/img/icondicoding.jpg" class="cert-card__org-logo" alt="Dicoding Logo">
+                                <span class="cert-card__org-name">Dicoding Indonesia</span>
+                                <span class="cert-card__status-tag">Verified</span>
+                            </div>
+                            <h3 class="cert-card__title">Belajar Dasar AI</h3>
+                            <div class="cert-card__tags">
+                                <span>AI</span>
+                                <span>Machine Learning</span>
+                            </div>
+                            <div class="cert-card__footer">
+                                <span class="cert-card__id">CERT-DIC-003</span>
+                                <a href="https://www.dicoding.com/certificates/MRZMY3Q7RZYQ" target="_blank"
+                                    class="cert-card__verify">Verify <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card reveal" data-category="development">
+                        <div class="cert-card__banner">
+                            <img src="assets/img/bannerdicoding.jpg" alt="Dicoding Banner">
+                            <span class="cert-card__date-tag">Jul 2025</span>
+                        </div>
+                        <div class="cert-card__body">
+                            <div class="cert-card__org-row">
+                                <img src="assets/img/icondicoding.jpg" class="cert-card__org-logo" alt="Dicoding Logo">
+                                <span class="cert-card__org-name">Dicoding Indonesia</span>
+                                <span class="cert-card__status-tag">Verified</span>
+                            </div>
+                            <h3 class="cert-card__title">Belajar Dasar Pemrograman JavaScript</h3>
+                            <div class="cert-card__tags">
+                                <span>JavaScript</span>
+                                <span>Web Dev</span>
+                            </div>
+                            <div class="cert-card__footer">
+                                <span class="cert-card__id">CERT-DIC-004</span>
+                                <a href="https://www.dicoding.com/certificates/1OP8JYQYLPQK" target="_blank"
+                                    class="cert-card__verify">Verify <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card reveal" data-category="development">
+                        <div class="cert-card__banner">
+                            <img src="assets/img/bannerdicoding.jpg" alt="Dicoding Banner">
+                            <span class="cert-card__date-tag">Apr 2026</span>
+                        </div>
+                        <div class="cert-card__body">
+                            <div class="cert-card__org-row">
+                                <img src="assets/img/icondicoding.jpg" class="cert-card__org-logo" alt="Dicoding Logo">
+                                <span class="cert-card__org-name">Dicoding Indonesia</span>
+                                <span class="cert-card__status-tag">Verified</span>
+                            </div>
+                            <h3 class="cert-card__title">Spec-Driven Development dengan Kiro</h3>
+                            <div class="cert-card__tags">
+                                <span>SDD</span>
+                                <span>Quality</span>
+                            </div>
+                            <div class="cert-card__footer">
+                                <span class="cert-card__id">CERT-DIC-005</span>
+                                <a href="https://www.dicoding.com/certificates/0LZ0Y29J3X65" target="_blank"
+                                    class="cert-card__verify">Verify <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__top">
+                <div class="footer__col footer__brand">
+                    <h2 class="footer__logo">Casey Shalom</h2>
+                    <p class="footer__tagline">NOC Engineer & IT Support Specialist building efficient and reliable
+                        network infrastructures.</p>
+                </div>
+                <div class="footer__col footer__nav">
+                    <h3 class="footer__title">Navigation</h3>
+                    <ul class="footer__links">
+                        <li><a href="index.html">About</a></li>
+                        <li><a href="experience.html">Experience</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="certifications.html">Certifications</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col footer__social">
+                    <h3 class="footer__title">Connect</h3>
+                    <div class="footer__icons">
+                        <a href="https://www.linkedin.com/in/casey-shalom" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/caseyshalom" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">Copyright © 2026 Casey Shalom | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>
