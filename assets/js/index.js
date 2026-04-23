@@ -103,7 +103,8 @@ function initScrollReveal() {
         '.cert-card',
         '.academy__card',
         '.academy__header',
-        '.cert-filters'
+        '.cert-filters',
+        '.community-card'
     ];
 
     const elements = document.querySelectorAll(revealTargets.join(', '));
