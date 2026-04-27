@@ -541,12 +541,13 @@ async function initParticleBackground() {
             vantaBg.style.left = '0';
             vantaBg.style.width = '100vw';
             vantaBg.style.height = '100vh';
+            vantaBg.style.opacity = '0.4'; // Make it subtle and fade into background
             // We keep pointer-events active to allow interaction, 
             // but z-index:0 keeps it behind content.
             document.body.prepend(vantaBg);
         }
 
-        // Initialize Vanta NET
+        // Initialize Vanta NET with more elegant parameters
         if (window.VANTA && window.VANTA.NET) {
             window.VANTA.NET({
                 el: "#vanta-bg",
@@ -559,9 +560,9 @@ async function initParticleBackground() {
                 scaleMobile: 1.00,
                 color: 0x6c63ff, // Primary accent
                 backgroundColor: 0x0a0a0f, // Primary bg color
-                points: 14.00,
-                maxDistance: 21.00,
-                spacing: 16.00,
+                points: 9.00,      // Fewer points for less clutter
+                maxDistance: 24.00, // Longer connection distance
+                spacing: 20.00,    // More space between nodes
                 showDots: true
             });
         }
