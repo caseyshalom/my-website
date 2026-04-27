@@ -303,11 +303,11 @@ async function initGitHubProjects(username, limit = 100) {
         let displayRepos = [];
 
         if (limit <= 3) {
-            const priority = ['ecoguardian', 'demo', 'chatbot'];
+            const priority = ['evergreen', 'demo', 'chatbot'];
             priority.forEach(key => {
                 const found = repos.find(repo => {
                     const name = repo.name.toLowerCase();
-                    if (key === 'ecoguardian') return name.includes('ecoguardian') && !name.includes('unified');
+                    if (key === 'evergreen') return name.includes('evergreen');
                     return name.includes(key);
                 });
                 if (found) displayRepos.push(found);
@@ -335,7 +335,10 @@ async function initGitHubProjects(username, limit = 100) {
             const desc = (repo.description || '').toLowerCase();
             const lang = (repo.language || '').toLowerCase();
 
-            if (name.includes('ecoguardian') || name.includes('bot') || desc.includes('bot')) {
+            if (name.includes('evergreen')) {
+                iconClass = 'fas fa-tree';
+                cursorColor = '#10b981'; // Emerald Green
+            } else if (name.includes('bot') || desc.includes('bot')) {
                 iconClass = 'fas fa-robot';
                 cursorColor = '#00d2ff'; // Cyan
             } else if (name.includes('demo') || lang === 'java') {
