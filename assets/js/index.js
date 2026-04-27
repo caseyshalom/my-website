@@ -337,25 +337,18 @@ async function initGitHubProjects(username, limit = 100) {
 
             if (name.includes('evergreen')) {
                 iconClass = 'fas fa-tree';
-                cursorColor = '#10b981'; // Emerald Green
             } else if (name.includes('bot') || desc.includes('bot')) {
                 iconClass = 'fas fa-robot';
-                cursorColor = '#00d2ff'; // Cyan
             } else if (name.includes('demo') || lang === 'java') {
                 iconClass = 'fab fa-java';
-                cursorColor = '#f89820'; // Java Orange
             } else if (name.includes('chat') || name.includes('ai') || desc.includes('ai')) {
                 iconClass = 'fas fa-brain';
-                cursorColor = '#a78bfa'; // Purple
             } else if (lang === 'javascript' || lang === 'typescript' || name.includes('web') || name.includes('site')) {
                 iconClass = 'fas fa-globe';
-                cursorColor = '#3b82f6'; // Blue
             } else if (name.includes('tool') || name.includes('cli') || name.includes('automation')) {
                 iconClass = 'fas fa-terminal';
-                cursorColor = '#94a3b8'; // Slate
             } else if (lang === 'python') {
                 iconClass = 'fab fa-python';
-                cursorColor = '#3776ab'; // Python Blue
             }
 
             card.setAttribute('data-cursor-color', cursorColor);
