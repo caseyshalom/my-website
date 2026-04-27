@@ -506,144 +506,67 @@ function initCertFilters() {
 }
 
 /* ========================================
-   Particle Background
+   Advanced 3D Particle Background (Vanta.js)
    ======================================== */
-function initParticleBackground() {
-    const canvas = document.createElement('canvas');
-    canvas.id = 'bg-canvas';
-    canvas.className = 'bg-canvas';
-    document.body.prepend(canvas);
-
-    const ctx = canvas.getContext('2d');
-    let width, height;
-    let particles = [];
-    
-    // Config
-    const config = {
-        particleCount: 80,
-        particleColor: 'rgba(108, 99, 255, 0.5)', 
-        lineColor: 'rgba(108, 99, 255, 0.15)',
-        particleRadius: 1.5,
-        maxVelocity: 0.6,
-        connectDistance: 130,
-        mouseRadius: 150
-    };
-
-    let mouse = { x: null, y: null };
-
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
+function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
     });
+}
 
-    window.addEventListener('mouseout', () => {
-        mouse.x = null;
-        mouse.y = null;
-    });
-
-    function resize() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
-        init(); // Reinitialize particles on resize to maintain density
-    }
-
-    window.addEventListener('resize', () => {
-        // debounce resize
-        clearTimeout(window.resizeTimer);
-        window.resizeTimer = setTimeout(resize, 200);
-    });
-    
-    // Initial size
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * config.maxVelocity;
-            this.vy = (Math.random() - 0.5) * config.maxVelocity;
-            this.baseX = this.x;
-            this.baseY = this.y;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            // Bounce off edges
-            if (this.x < 0 || this.x > width) this.vx *= -1;
-            if (this.y < 0 || this.y > height) this.vy *= -1;
-
-            // Mouse interaction (repel)
-            if (mouse.x && mouse.y) {
-                const dx = mouse.x - this.x;
-                const dy = mouse.y - this.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < config.mouseRadius) {
-                    const forceDirectionX = dx / distance;
-                    const forceDirectionY = dy / distance;
-                    // Ease the force
-                    const force = (config.mouseRadius - distance) / config.mouseRadius;
-                    
-                    this.x -= forceDirectionX * force * 3;
-                    this.y -= forceDirectionY * force * 3;
-                }
-            }
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, config.particleRadius, 0, Math.PI * 2);
-            ctx.fillStyle = config.particleColor;
-            ctx.fill();
-        }
-    }
-
-    function init() {
-        particles = [];
-        // calculate particle count based on screen area to keep density consistent
-        const area = width * height;
-        const count = Math.floor(area / 18000); 
-        config.particleCount = Math.min(Math.max(count, 40), 150); // Min 40, Max 150
+async function initParticleBackground() {
+    try {
+        // Load Three.js and Vanta.js dynamically
+        await loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js');
+        await loadScript('https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js');
         
-        for (let i = 0; i < config.particleCount; i++) {
-            particles.push(new Particle());
+        // Remove old static background elements if they exist
+        const oldCanvas = document.getElementById('bg-canvas');
+        if (oldCanvas) oldCanvas.remove();
+        
+        document.querySelectorAll('.bg-glow').forEach(el => el.remove());
+
+        // Create Vanta container
+        let vantaBg = document.getElementById('vanta-bg');
+        if (!vantaBg) {
+            vantaBg = document.createElement('div');
+            vantaBg.id = 'vanta-bg';
+            vantaBg.style.position = 'fixed';
+            vantaBg.style.zIndex = '0';
+            vantaBg.style.top = '0';
+            vantaBg.style.left = '0';
+            vantaBg.style.width = '100vw';
+            vantaBg.style.height = '100vh';
+            // We keep pointer-events active to allow interaction, 
+            // but z-index:0 keeps it behind content.
+            document.body.prepend(vantaBg);
         }
-    }
 
-    function animate() {
-        ctx.clearRect(0, 0, width, height);
-
-        for (let i = 0; i < particles.length; i++) {
-            particles[i].update();
-            particles[i].draw();
-
-            // Draw connections
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < config.connectDistance) {
-                    ctx.beginPath();
-                    const opacity = 1 - (distance / config.connectDistance);
-                    ctx.strokeStyle = `rgba(108, 99, 255, ${opacity * 0.25})`; // Fade line out based on distance
-                    ctx.lineWidth = 1;
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.stroke();
-                }
-            }
+        // Initialize Vanta NET
+        if (window.VANTA && window.VANTA.NET) {
+            window.VANTA.NET({
+                el: "#vanta-bg",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x6c63ff, // Primary accent
+                backgroundColor: 0x0a0a0f, // Primary bg color
+                points: 14.00,
+                maxDistance: 21.00,
+                spacing: 16.00,
+                showDots: true
+            });
         }
-        requestAnimationFrame(animate);
+        
+    } catch (e) {
+        console.error("Failed to load Vanta.js for advanced background", e);
     }
-
-    init();
-    animate();
 }
