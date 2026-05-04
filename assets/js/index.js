@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initScrollReveal();
     initCustomCursor();
-    initInteractiveBackground();
     initParticleBackground();
     initMagneticElements();
     updateActiveNavLink();
@@ -508,46 +507,9 @@ function initCertFilters() {
 /* ========================================
    Advanced 3D Particle Background (Vanta.js)
    ======================================== */
-function loadScript(src) {
-    return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.src = src;
-        script.onload = resolve;
-        script.onerror = reject;
-        document.head.appendChild(script);
-    });
-}
-
-async function initParticleBackground() {
+function initParticleBackground() {
     try {
-        // Load Three.js and Vanta.js dynamically
-        await loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js');
-        await loadScript('https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js');
-        
-        // Remove old static background elements if they exist
-        const oldCanvas = document.getElementById('bg-canvas');
-        if (oldCanvas) oldCanvas.remove();
-        
-        document.querySelectorAll('.bg-glow').forEach(el => el.remove());
-
-        // Create Vanta container
-        let vantaBg = document.getElementById('vanta-bg');
-        if (!vantaBg) {
-            vantaBg = document.createElement('div');
-            vantaBg.id = 'vanta-bg';
-            vantaBg.style.position = 'fixed';
-            vantaBg.style.zIndex = '0';
-            vantaBg.style.top = '0';
-            vantaBg.style.left = '0';
-            vantaBg.style.width = '100vw';
-            vantaBg.style.height = '100vh';
-            vantaBg.style.opacity = '0.4'; // Make it subtle and fade into background
-            // We keep pointer-events active to allow interaction, 
-            // but z-index:0 keeps it behind content.
-            document.body.prepend(vantaBg);
-        }
-
-        // Initialize Vanta NET with more elegant parameters
+        // Initialize Vanta NET directly since scripts are now loaded in HTML
         if (window.VANTA && window.VANTA.NET) {
             window.VANTA.NET({
                 el: "#vanta-bg",
@@ -566,8 +528,7 @@ async function initParticleBackground() {
                 showDots: true
             });
         }
-        
     } catch (e) {
-        console.error("Failed to load Vanta.js for advanced background", e);
+        console.error("Failed to initialize Vanta.js background", e);
     }
 }
