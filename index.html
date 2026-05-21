@@ -7,7 +7,7 @@
     <title>Casey Shalom | Student & Learner</title>
     <meta name="description"
         content="Personal portfolio — Developer & Engineer. Building digital solutions with passion and precision.">
-    <link rel="stylesheet" href="assets/css/style.css?v=2.3">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +26,12 @@
 
     <!-- Vanta Background -->
     <div id="vanta-bg" style="position: fixed; z-index: 0; top: 0; left: 0; width: 100vw; height: 100vh; opacity: 0.4;"></div>
+
+    <!-- Video Background for Glass3D effect -->
+    <video id="bg-video" autoplay muted loop playsinline
+        style="position: fixed; z-index: -1; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; opacity: 0.55; pointer-events: none;">
+        <source src="https://cdn.coverr.co/videos/coverr-abstract-liquid-metal-waves-5560/1080p.mp4" type="video/mp4">
+    </video>
 
     <!-- Floating Navigation -->
     <nav id="navbar" class="navbar">
@@ -81,7 +87,7 @@
                     </div>
                 </div>
                 <div class="hero__terminal">
-                    <div class="terminal">
+                    <div class="terminal glass3d">
                         <div class="terminal__header">
                             <div class="terminal__dots">
                                 <span class="terminal__dot terminal__dot--red"></span>
