@@ -1948,6 +1948,25 @@ ul {
 }
 
 /* ========================================
+   Animated Background (for Glass3D backdrop-filter)
+   ======================================== */
+#animated-bg {
+    background:
+        radial-gradient(ellipse at 20% 50%, hsl(220 80% 20% / 0.8) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, hsl(260 70% 25% / 0.7) 0%, transparent 55%),
+        radial-gradient(ellipse at 60% 80%, hsl(200 90% 15% / 0.9) 0%, transparent 50%),
+        hsl(220 30% 8%);
+    animation: bgShift 12s ease-in-out infinite alternate;
+}
+
+@keyframes bgShift {
+    0%   { filter: hue-rotate(0deg) brightness(1); }
+    33%  { filter: hue-rotate(15deg) brightness(1.1); }
+    66%  { filter: hue-rotate(-10deg) brightness(0.95); }
+    100% { filter: hue-rotate(20deg) brightness(1.05); }
+}
+
+/* ========================================
    Glass 3D
    ======================================== */
 .glass3d {

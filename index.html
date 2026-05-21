@@ -7,7 +7,7 @@
     <title>Casey Shalom | Student & Learner</title>
     <meta name="description"
         content="Personal portfolio — Developer & Engineer. Building digital solutions with passion and precision.">
-    <link rel="stylesheet" href="assets/css/style.css?v=2.4">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.5">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,19 +19,16 @@
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
 </head>
 
-<body class="glass3d">
+<body>
     <!-- Custom Cursor -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursor-follower"></div>
 
+    <!-- Animated Background for Glass3D effect -->
+    <div id="animated-bg" style="position: fixed; z-index: -1; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;"></div>
+
     <!-- Vanta Background -->
     <div id="vanta-bg" style="position: fixed; z-index: 0; top: 0; left: 0; width: 100vw; height: 100vh; opacity: 0.4;"></div>
-
-    <!-- Video Background for Glass3D effect -->
-    <video id="bg-video" autoplay muted loop playsinline
-        style="position: fixed; z-index: -1; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; opacity: 0.55; pointer-events: none;">
-        <source src="https://cdn.coverr.co/videos/coverr-abstract-liquid-metal-waves-5560/1080p.mp4" type="video/mp4">
-    </video>
 
     <!-- Floating Navigation -->
     <nav id="navbar" class="navbar">
