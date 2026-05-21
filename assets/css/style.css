@@ -2003,28 +2003,6 @@ ul {
     z-index: 6;
 }
 
-/* When glass3d is on body, pseudo-elements must be fixed to cover full viewport */
-body.glass3d {
-    position: static;
-    z-index: auto;
-    box-shadow: none;
-}
-
-body.glass3d::before {
-    position: fixed;
-    z-index: 1;
-}
-
-body.glass3d::after {
-    position: fixed;
-    z-index: 2;
-}
-
-body.glass3d > * {
-    position: relative;
-    z-index: 3;
-}
-
 /* Selection */
 ::selection {
     background: var(--accent);
