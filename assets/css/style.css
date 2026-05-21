@@ -2,29 +2,29 @@
    CSS Variables / Design Tokens
    ======================================== */
 :root {
-    /* Colors */
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #10101a;
-    --bg-card: rgba(16, 16, 26, 0.6);
-    --bg-card-hover: rgba(24, 24, 40, 0.8);
-    --bg-glass: rgba(255, 255, 255, 0.03);
-    --bg-glass-hover: rgba(255, 255, 255, 0.06);
+    /* Colors — tuned for water/ocean background */
+    --bg-primary: #060a12;
+    --bg-secondary: #0a1020;
+    --bg-card: rgba(10, 20, 40, 0.45);
+    --bg-card-hover: rgba(15, 30, 55, 0.65);
+    --bg-glass: rgba(255, 255, 255, 0.04);
+    --bg-glass-hover: rgba(255, 255, 255, 0.08);
 
-    --text-primary: #e4e4e7;
-    --text-secondary: #8b8b9e;
-    --text-muted: #52526b;
+    --text-primary: #e8f4f8;
+    --text-secondary: #90b8cc;
+    --text-muted: #4a7a94;
 
-    --accent: #6c63ff;
-    --accent-soft: rgba(108, 99, 255, 0.12);
-    --accent-glow: rgba(108, 99, 255, 0.3);
-    --accent-secondary: #a78bfa;
+    --accent: #38bdf8;
+    --accent-soft: rgba(56, 189, 248, 0.12);
+    --accent-glow: rgba(56, 189, 248, 0.3);
+    --accent-secondary: #7dd3fc;
 
-    --border: rgba(255, 255, 255, 0.06);
-    --border-hover: rgba(108, 99, 255, 0.3);
+    --border: rgba(56, 189, 248, 0.1);
+    --border-hover: rgba(56, 189, 248, 0.35);
 
-    --success: #22c55e;
-    --red: #ef4444;
-    --yellow: #eab308;
+    --success: #34d399;
+    --red: #f87171;
+    --yellow: #fbbf24;
 
     /* Typography */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -218,10 +218,10 @@ ul {
     align-items: center;
     justify-content: center;
     padding: 12px 32px;
-    background: rgba(15, 15, 20, 0.4);
+    background: rgba(6, 15, 35, 0.5);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.15);
     border-radius: 100px;
     transition: var(--transition-base);
 }
@@ -231,8 +231,8 @@ ul {
 }
 
 .navbar.scrolled .navbar__inner {
-    background: rgba(10, 10, 15, 0.85);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(6, 15, 35, 0.88);
+    border-color: rgba(56, 189, 248, 0.25);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     padding: 8px 10px;
 }
@@ -302,7 +302,7 @@ ul {
     right: 0;
     bottom: 0;
     z-index: 999;
-    background: rgba(10, 10, 15, 0.95);
+    background: rgba(6, 15, 35, 0.96);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     display: flex;
@@ -395,7 +395,7 @@ ul {
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, var(--accent), var(--accent-secondary), #818cf8);
+    background: linear-gradient(135deg, #38bdf8, #7dd3fc, #bae6fd);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -438,20 +438,20 @@ ul {
 }
 
 .btn--primary:hover {
-    background: #7c73ff;
-    box-shadow: 0 6px 28px rgba(108, 99, 255, 0.45);
+    background: #7dd3fc;
+    box-shadow: 0 6px 28px rgba(56, 189, 248, 0.45);
     transform: translateY(-2px);
 }
 
 .btn--ghost {
     background: transparent;
     color: var(--text-primary);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
 .btn--ghost:hover {
     border-color: var(--border-hover);
-    background: var(--bg-glass-hover);
+    background: rgba(56, 189, 248, 0.08);
     transform: translateY(-2px);
 }
 
@@ -461,13 +461,13 @@ ul {
 }
 
 .terminal {
-    background: transparent;
-    border: 1px solid var(--border);
+    background: rgba(6, 15, 35, 0.5);
+    border: 1px solid rgba(56, 189, 248, 0.15);
     border-radius: var(--radius-lg);
     overflow: visible;
     box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 .terminal__header {
@@ -698,8 +698,8 @@ ul {
     display: flex;
     flex-direction: column;
     padding: 32px;
-    background: rgba(20, 25, 35, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(6, 20, 45, 0.45);
+    border: 1px solid rgba(56, 189, 248, 0.1);
     border-radius: 24px;
     transition: var(--transition-base);
     cursor: pointer;
@@ -707,10 +707,10 @@ ul {
 }
 
 .project-card:hover {
-    background: rgba(30, 40, 55, 0.5);
-    border-color: var(--hover-color, rgba(108, 99, 255, 0.3));
+    background: rgba(10, 30, 60, 0.6);
+    border-color: var(--hover-color, rgba(56, 189, 248, 0.35));
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 50px var(--hover-glow, rgba(108, 99, 255, 0.15));
+    box-shadow: 0 20px 50px var(--hover-glow, rgba(56, 189, 248, 0.15));
 }
 
 .project-card__header {
@@ -1081,9 +1081,9 @@ ul {
 .footer {
     position: relative;
     z-index: 10;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(56, 189, 248, 0.1);
     padding: 80px 0 40px;
-    background: rgba(10, 12, 16, 0.3);
+    background: rgba(6, 15, 35, 0.6);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 }
