@@ -10,16 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
     initCustomCursor();
     initParticleBackground();
     initMagneticElements();
-    updateActiveNavLink();
+    initSectionNavigation();
     initCertFilters();
+    initAcademyMetrics();
 
-    // Page-specific features
+    // Load GitHub projects (all repos since it's a single page now)
     const projectsGrid = document.getElementById('projects-grid');
     if (projectsGrid) {
-        const path = window.location.pathname;
-        const page = path.split('/').pop() || 'index.html';
-        const limit = (page === 'index.html' || page === '') ? 3 : 100;
-        initGitHubProjects('caseyshalom', limit);
+        initGitHubProjects('caseyshalom', 100);
     }
 
     const terminal = document.querySelector('.terminal');
@@ -28,18 +26,79 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function updateActiveNavLink() {
-    const path = window.location.pathname;
-    const page = path.split('/').pop() || 'index.html';
-
+/* ========================================
+   Section-Based Navigation (Single Page)
+   ======================================== */
+function initSectionNavigation() {
+    const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
+
+    // Smooth scroll for nav links
     navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === page) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Smooth scroll for footer links
+    const footerLinks = document.querySelectorAll('.footer__links a[href^="#"]');
+    footerLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Smooth scroll for hero action buttons with hash links
+    const hashButtons = document.querySelectorAll('a[href^="#"]');
+    hashButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Skip if it's a nav/mobile link (already handled above)
+            if (btn.classList.contains('nav-link') || btn.classList.contains('mobile-link')) return;
+            
+            const targetId = btn.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                e.preventDefault();
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Update active nav link on scroll
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    const linkSection = link.getAttribute('data-section') || link.getAttribute('href').substring(1);
+                    if (linkSection === id) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
     });
 }
 
@@ -300,21 +359,7 @@ async function initGitHubProjects(username, limit = 100) {
 
         if (!Array.isArray(repos)) throw new Error('Could not fetch repos');
 
-        let displayRepos = [];
-
-        if (limit <= 3) {
-            const priority = ['evergreen', 'demo', 'chatbot'];
-            priority.forEach(key => {
-                const found = repos.find(repo => {
-                    const name = repo.name.toLowerCase();
-                    if (key === 'evergreen') return name.includes('evergreen');
-                    return name.includes(key);
-                });
-                if (found) displayRepos.push(found);
-            });
-        } else {
-            displayRepos = repos.filter(repo => !repo.name.toLowerCase().includes('unified'));
-        }
+        let displayRepos = repos.filter(repo => !repo.name.toLowerCase().includes('unified'));
 
         const finalRepos = displayRepos.slice(0, limit);
 
@@ -531,4 +576,82 @@ function initParticleBackground() {
     } catch (e) {
         console.error("Failed to initialize Vanta.js background", e);
     }
+}
+
+/* ========================================
+   Academic Metrics Simulation Animation
+   ======================================== */
+function initAcademyMetrics() {
+    const card = document.querySelector('.academy__card');
+    if (!card) return;
+
+    const statusEl = card.querySelector('.academy__status');
+    const metricsEl = card.querySelector('.academy__metrics-value');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateMetrics(statusEl, metricsEl);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    observer.observe(card);
+}
+
+function animateMetrics(statusEl, metricsEl) {
+    // 1. Animate Status Text
+    const dot = statusEl.querySelector('.status-dot');
+    
+    // Create status text element if not present
+    let textSpan = statusEl.querySelector('.status-text');
+    if (!textSpan) {
+        statusEl.innerHTML = '';
+        if (dot) statusEl.appendChild(dot);
+        // Add spacing after dot
+        statusEl.appendChild(document.createTextNode(' '));
+        textSpan = document.createElement('span');
+        textSpan.className = 'status-text';
+        textSpan.textContent = 'Calculating...';
+        statusEl.appendChild(textSpan);
+    }
+
+    const statusStates = [
+        '[SYS_INIT]',
+        'CONNECTING_DB...',
+        'COMPUTING_GPA...',
+        'VERIFIED_CREDENTIALS',
+        'Active Student'
+    ];
+    
+    let stateIdx = 0;
+    const statusInterval = setInterval(() => {
+        if (stateIdx < statusStates.length - 1) {
+            textSpan.textContent = statusStates[stateIdx];
+            stateIdx++;
+        } else {
+            textSpan.textContent = statusStates[statusStates.length - 1];
+            clearInterval(statusInterval);
+        }
+    }, 450);
+
+    // 2. Animate GPA counting up to 3.86
+    let currentGpa = 0.00;
+    const targetGpa = 3.86;
+    const duration = 2000; // 2 seconds
+    const intervalTime = 30; // 30ms step
+    const stepsCount = duration / intervalTime;
+    const increment = targetGpa / stepsCount;
+
+    const gpaInterval = setInterval(() => {
+        currentGpa += increment;
+        if (currentGpa >= targetGpa) {
+            metricsEl.textContent = '3.86 / 4.00';
+            clearInterval(gpaInterval);
+        } else {
+            // Display standard incrementing value with a cool flashing cyber indicator
+            metricsEl.textContent = `${currentGpa.toFixed(2)} ${Math.random() > 0.6 ? '⚡' : ''}`;
+        }
+    }, intervalTime);
 }
