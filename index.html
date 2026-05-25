@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casey Shalom | Student & Learner</title>
-    <meta name="description"
-        content="Personal portfolio — Developer & Engineer. Building digital solutions with passion and precision.">
-    <link rel="stylesheet" href="assets/css/style.css?v=2.6">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Casey Shalom</title>
+    <meta name="description" content="Network, Cloud & AI Enthusiast — Building digital solutions that matter.">
+    <link rel="stylesheet" href="assets/css/style.css?v=3.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,700;1,800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -24,11 +25,15 @@
 
     <!-- Video Background -->
     <video autoplay loop muted playsinline
-        style="position: fixed; z-index: -1; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; opacity: 0.5; pointer-events: none;"
-        src="assets/water-bg.mp4">
-    </video>
+        style="position:fixed;z-index:-1;top:0;left:0;width:100vw;height:100vh;object-fit:cover;opacity:0.4;pointer-events:none;"
+        src="assets/water-bg.mp4"></video>
 
-    <!-- Floating Navigation -->
+    <!-- Dark overlay -->
+    <div
+        style="position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 60% 40%,rgba(40,20,100,0.5) 0%,rgba(5,8,20,0.82) 70%);pointer-events:none;">
+    </div>
+
+    <!-- NAVBAR -->
     <nav id="navbar" class="navbar">
         <div class="navbar__inner">
             <ul class="navbar__links" id="nav-links">
@@ -38,14 +43,12 @@
                 <li><a href="certifications.html" class="nav-link">Certifications</a></li>
             </ul>
             <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
         <ul class="mobile-menu__links">
             <li><a href="index.html" class="mobile-link active">About</a></li>
@@ -56,8 +59,8 @@
     </div>
 
     <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero">
+        <!-- HERO -->
+        <section class="hero">
             <div class="hero__container">
                 <div class="hero__content">
                     <div class="hero__badge">
@@ -72,11 +75,10 @@
                         across networking, cloud computing, and artificial intelligence.
                     </p>
                     <div class="hero__actions">
-                        <a href="projects.html" class="btn btn--primary" id="view-projects-btn">
+                        <a href="projects.html" class="btn btn--primary">
                             <i class="fas fa-rocket"></i> View Projects
                         </a>
-                        <a href="https://www.linkedin.com/in/casey-shalom" target="_blank" class="btn btn--ghost"
-                            id="contact-btn">
+                        <a href="https://www.linkedin.com/in/casey-shalom" target="_blank" class="btn btn--ghost">
                             <i class="fab fa-linkedin"></i> Contact Me
                         </a>
                     </div>
@@ -97,15 +99,14 @@
                                 <span class="terminal__command" id="typed-text"></span>
                                 <span class="terminal__cursor">▎</span>
                             </div>
-                            <div class="terminal__output" id="terminal-output">
-                            </div>
+                            <div class="terminal__output" id="terminal-output"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- SKILLS -->
         <section id="skills" class="section">
             <div class="section__container">
                 <div class="section__header">
@@ -113,7 +114,6 @@
                     <h2 class="section__title">Technical Excellence</h2>
                 </div>
             </div>
-            <!-- Single Marquee Row -->
             <div class="marquee" id="skills-marquee">
                 <div class="marquee__track marquee__track--left">
                     <div class="marquee__content">
@@ -172,93 +172,122 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section section--alt">
-            <div class="section__container">
-                <div class="section__header">
+        <!-- PROJECTS STICKY SCROLL -->
+        <div class="projects-showcase" id="projects-showcase">
+            <!-- Sticky container -->
+            <div class="projects-showcase__sticky">
+                <div class="projects-showcase__intro">
                     <span class="section__tag">_ FEATURED WORK</span>
-                    <h2 class="section__title">Project Showcase</h2>
+                    <h2>Project Showcase</h2>
+                    <p>Here are some of my projects.</p>
                 </div>
-                <div class="projects-grid" id="projects-grid">
-                    <a href="#" class="project-card" id="project-1">
-                        <div class="project-card__header">
-                            <i class="fas fa-folder-open project-card__icon"></i>
-                            <div class="project-card__links">
-                                <i class="fab fa-github"></i>
-                                <i class="fas fa-external-link-alt"></i>
+
+                <!-- Left: particle sphere -->
+                <div class="projects-showcase__sphere">
+                    <canvas id="project-canvas" class="project-canvas"></canvas>
+                </div>
+
+                <!-- Right: stacked cards -->
+                <div class="projects-showcase__cards">
+
+                    <!-- Card 1: EverGreen-AI -->
+                    <div class="pcard" id="pcard-0" data-shape="0">
+                        <div class="pcard__inner">
+                            <div class="pcard__meta">
+                                <span class="pcard__num">01</span>
+                                <a href="https://github.com/caseyshalom/EverGreen-AI" target="_blank"
+                                    class="pcard__link">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <div class="pcard__title-wrap">
+                                <h3 class="pcard__title">EverGreen-AI</h3>
+                            </div>
+                            <p class="pcard__desc">AI Agent untuk Pemantauan Lingkungan dan Sosial — sistem cerdas
+                                berbasis Python yang memantau kondisi lingkungan secara real-time menggunakan kecerdasan
+                                buatan.</p>
+                            <div class="pcard__footer">
+                                <div class="pcard__tags">
+                                    <span>JavaScript</span>
+                                    <span>AI Agent</span>
+                                    <span>Environment</span>
+                                </div>
+                                <div class="pcard__stats">
+                                    <span><i class="far fa-star"></i> 0</span>
+                                    <span><i class="fas fa-code-branch"></i> 0</span>
+                                </div>
                             </div>
                         </div>
-                        <h3 class="project-card__title">Portfolio Website</h3>
-                        <p class="project-card__desc">A minimalist personal portfolio built with vanilla HTML, CSS, and
-                            JavaScript with smooth animations.</p>
-                        <div class="project-card__tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                    </a>
-                    <a href="#" class="project-card" id="project-2">
-                        <div class="project-card__header">
-                            <i class="fas fa-folder-open project-card__icon"></i>
-                            <div class="project-card__links">
-                                <i class="fab fa-github"></i>
-                                <i class="fas fa-external-link-alt"></i>
+                    </div>
+
+                    <!-- Card 2: demo -->
+                    <div class="pcard" id="pcard-1" data-shape="1">
+                        <div class="pcard__inner">
+                            <div class="pcard__meta">
+                                <span class="pcard__num">02</span>
+                                <a href="https://github.com/caseyshalom/demo" target="_blank" class="pcard__link">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <div class="pcard__title-wrap">
+                                <h3 class="pcard__title">Demo</h3>
+                            </div>
+                            <p class="pcard__desc">Belajar Java — repository demonstrasi dan eksplorasi konsep-konsep
+                                pemrograman Java mulai dari dasar hingga implementasi lanjutan.</p>
+                            <div class="pcard__footer">
+                                <div class="pcard__tags">
+                                    <span>Java</span>
+                                    <span>Learning</span>
+                                    <span>OOP</span>
+                                </div>
+                                <div class="pcard__stats">
+                                    <span><i class="far fa-star"></i> 0</span>
+                                    <span><i class="fas fa-code-branch"></i> 0</span>
+                                </div>
                             </div>
                         </div>
-                        <h3 class="project-card__title">Task Manager API</h3>
-                        <p class="project-card__desc">RESTful API for task management with authentication, built using
-                            Node.js and Express with MongoDB.</p>
-                        <div class="project-card__tags">
-                            <span>Node.js</span>
-                            <span>Express</span>
-                            <span>MongoDB</span>
-                        </div>
-                    </a>
-                    <a href="#" class="project-card" id="project-3">
-                        <div class="project-card__header">
-                            <i class="fas fa-folder-open project-card__icon"></i>
-                            <div class="project-card__links">
-                                <i class="fab fa-github"></i>
-                                <i class="fas fa-external-link-alt"></i>
+                    </div>
+
+                    <!-- Card 3: awastipu-root -->
+                    <div class="pcard" id="pcard-2" data-shape="2">
+                        <div class="pcard__inner">
+                            <div class="pcard__meta">
+                                <span class="pcard__num">03</span>
+                                <a href="https://github.com/caseyshalom/awastipu-root" target="_blank"
+                                    class="pcard__link">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <div class="pcard__title-wrap">
+                                <h3 class="pcard__title">AwasTipu</h3>
+                            </div>
+                            <p class="pcard__desc">Platform deteksi dan pencegahan penipuan digital — sistem berbasis AI
+                                untuk mengidentifikasi dan memperingatkan pengguna dari ancaman penipuan online.</p>
+                            <div class="pcard__footer">
+                                <div class="pcard__tags">
+                                    <span>Python</span>
+                                    <span>Security</span>
+                                    <span>AI</span>
+                                </div>
+                                <div class="pcard__stats">
+                                    <span><i class="far fa-star"></i> 0</span>
+                                    <span><i class="fas fa-code-branch"></i> 0</span>
+                                </div>
                             </div>
                         </div>
-                        <h3 class="project-card__title">Weather Dashboard</h3>
-                        <p class="project-card__desc">Real-time weather visualization dashboard with interactive charts
-                            and location-based forecasting.</p>
-                        <div class="project-card__tags">
-                            <span>React</span>
-                            <span>Chart.js</span>
-                            <span>API</span>
-                        </div>
-                    </a>
-                    <a href="#" class="project-card" id="project-4">
-                        <div class="project-card__header">
-                            <i class="fas fa-folder-open project-card__icon"></i>
-                            <div class="project-card__links">
-                                <i class="fab fa-github"></i>
-                                <i class="fas fa-external-link-alt"></i>
-                            </div>
-                        </div>
-                        <h3 class="project-card__title">CLI Automation Tool</h3>
-                        <p class="project-card__desc">Command-line tool for automating repetitive DevOps tasks with
-                            configurable workflow pipelines.</p>
-                        <div class="project-card__tags">
-                            <span>Python</span>
-                            <span>CLI</span>
-                            <span>DevOps</span>
-                        </div>
-                    </a>
+                    </div>
+
                 </div>
             </div>
-        </section>
-        <!-- The Academy Section -->
+        </div>
+
+        <!-- THE ACADEMY -->
         <section id="academy" class="section section--academy">
             <div class="section__container">
                 <div class="academy__header reveal">
                     <h2 class="academy__title">The Academy</h2>
                     <span class="academy__subtitle">/ACADEMIC_CREDENTIALS</span>
                 </div>
-
                 <div class="academy__card reveal">
                     <div class="academy__card-left">
                         <div class="academy__logo-box">
@@ -279,7 +308,6 @@
                         <div class="academy__metrics-status">In Progress (Undergraduate)</div>
                     </div>
                 </div>
-
                 <a href="https://www.instagram.com/dcn.nusamandiri?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                     target="_blank" class="community-card reveal">
                     <div class="community-card__header">
@@ -295,11 +323,9 @@
                 </a>
             </div>
         </section>
-
-
-
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__top">
@@ -334,6 +360,7 @@
     </footer>
 
     <script src="assets/js/index.js?v=1.6"></script>
+    <script src="assets/js/particles.js?v=1.1"></script>
 </body>
 
 </html>
